@@ -1,15 +1,14 @@
 package com.descortes.struggle;
 
-public class Sword implements Weapon {
-
+public class Knife implements Weapon {
     private Character character;
 
-    public Sword(Character character) {
+    public Knife(Character character) {
         this.character = character;
     }
 
     @Override
     public Integer points() {
-        return 2 * character.points();
+        return 2 + character.points();
     }
 }
