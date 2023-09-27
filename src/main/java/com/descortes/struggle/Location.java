@@ -1,5 +1,5 @@
 package com.descortes.struggle;
 
 public interface Location {
-    Integer points();
+    Integer points(Character character);
 }

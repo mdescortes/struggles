@@ -10,8 +10,8 @@ public class StruggleApp {
         Weapon weaponB =  createWeapon(weaponTypeB, characterB);
 
 
-        Integer puntosA = location.points() +  weaponA.points();
-        Integer puntosB = location.points() +  weaponB.points();
+        Integer puntosA = location.points(characterA) +  weaponA.points();
+        Integer puntosB = location.points(characterB) +  weaponB.points();
 
         if(puntosA > puntosB) return "Resultado: gana 1";
         if(puntosA < puntosB) return "Resultado: gana 2";
@@ -36,12 +36,19 @@ public class StruggleApp {
         if(characterType.equals("humano")){
             return new Human();
         }
+        if(characterType.equals("lobo")){
+            return new Wolf();
+        }
         return null;
     }
 
-    private static Stadium createLocation(String locationType) {
+    private static Location createLocation(String locationType) {
         if(locationType.equals("estadio")){
             return new Stadium();
+        }
+
+        if(locationType.equals("ciudad")){
+            return new City();
         }
 
         return null;
