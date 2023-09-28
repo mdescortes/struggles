@@ -2,21 +2,24 @@ package com.descortes.struggle;
 
 public class StruggleApp {
     public static String run(String locationType, String characterTypeA, String weaponTypeA, String characterTypeB, String weaponTypeB) {
+        try {
+            Location location = createLocation(locationType);
+            Character characterA = createCharacter(characterTypeA);
+            Character characterB = createCharacter(characterTypeB);
+            Weapon weaponA =  createWeapon(weaponTypeA, characterA);
+            Weapon weaponB =  createWeapon(weaponTypeB, characterB);
 
-        Location location = createLocation(locationType);
-        Character characterA = createCharacter(characterTypeA);
-        Character characterB = createCharacter(characterTypeB);
-        Weapon weaponA =  createWeapon(weaponTypeA, characterA);
-        Weapon weaponB =  createWeapon(weaponTypeB, characterB);
+            Integer puntosA = location.points(characterA) +  weaponA.points();
+            Integer puntosB = location.points(characterB) +  weaponB.points();
 
+            if(puntosA > puntosB) return "Resultado: gana 1";
+            if(puntosA < puntosB) return "Resultado: gana 2";
+            return "Resultado: empate";
 
-        Integer puntosA = location.points(characterA) +  weaponA.points();
-        Integer puntosB = location.points(characterB) +  weaponB.points();
-
-        if(puntosA > puntosB) return "Resultado: gana 1";
-        if(puntosA < puntosB) return "Resultado: gana 2";
-        return "Resultado: empate";
-    }
+        }catch (Exception e){
+            return e.getMessage();
+        }
+   }
 
     private static Weapon createWeapon(String weaponType, Character character) {
         if(weaponType.equals("espada")){
@@ -45,7 +48,7 @@ public class StruggleApp {
         return null;
     }
 
-    private static Location createLocation(String locationType) {
+    private static Location createLocation(String locationType) throws Exception {
         if(locationType.equals("estadio")){
             return new Stadium();
         }
@@ -62,7 +65,7 @@ public class StruggleApp {
             return new Rain();
         }
 
-        return null;
+        throw  new Exception("error: escenario desconocido");
     }
 
 
