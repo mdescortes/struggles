@@ -58,6 +58,10 @@ public class StruggleApp {
             return new Night();
         }
 
+        if(locationType.equals("lluvia")){
+            return new Rain();
+        }
+
         return null;
     }
 
