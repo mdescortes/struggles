@@ -65,6 +65,10 @@ public class StruggleApp {
             return new Rain();
         }
 
+        if(locationType.equals("bosque")){
+            return new Forest();
+        }
+
         throw  new Exception("error: escenario desconocido");
     }
 
