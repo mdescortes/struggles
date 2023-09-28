@@ -39,6 +39,9 @@ public class StruggleApp {
         if(characterType.equals("lobo")){
             return new Wolf();
         }
+        if(characterType.equals("vampiro")){
+            return new Vampire();
+        }
         return null;
     }
 
@@ -49,6 +52,10 @@ public class StruggleApp {
 
         if(locationType.equals("ciudad")){
             return new City();
+        }
+
+        if(locationType.equals("noche")){
+            return new Night();
         }
 
         return null;
