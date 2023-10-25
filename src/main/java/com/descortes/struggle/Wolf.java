@@ -1,8 +1,13 @@
 package com.descortes.struggle;
 
-public class Wolf implements Character {
+public class Wolf extends Character {
+
+    public Wolf() {
+        super(3);
+    }
+
     @Override
-    public Integer points() {
-        return 3;
+    public Integer points(Location location) {
+        return this.getDamage() + location.pointsBy(this);
     }
 }

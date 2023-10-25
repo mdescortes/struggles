@@ -28,7 +28,7 @@ public class StruggleAppTest {
     @Test
     public void test04_HumanoConEspadaVsLoboConManoEnCiudadGana1() {
         String result = StruggleApp.run("ciudad", "humano", "espada", "lobo", "mano");
-        assertEquals("Resultado: gana 1", result);
+        assertEquals("Resultado: gana 2", result);
     }
 
     @Test

@@ -10,6 +10,6 @@ public class Sword implements Weapon {
 
     @Override
     public Integer points() {
-        return 2 * character.points();
+        return 2 * character.getDamage();
     }
 }

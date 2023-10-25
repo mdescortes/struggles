@@ -1,11 +1,18 @@
 package com.descortes.struggle;
 
-public class Rain implements Location {
+public class Rain extends Location {
     @Override
-    public Integer points(Character character) {
-        if(character instanceof Vampire){
-            return character.points() - 1;
-        }
+    protected Integer pointsBy(Human human) {
+        return 0;
+    }
+
+    @Override
+    protected Integer pointsBy(Vampire vampire) {
+        return vampire.getDamage() - 1;
+    }
+
+    @Override
+    protected Integer pointsBy(Wolf stadium) {
         return 0;
     }
 }

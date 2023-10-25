@@ -1,5 +1,7 @@
 package com.descortes.struggle;
 
-public interface Location {
-    Integer points(Character character);
+public abstract class Location {
+    protected abstract Integer pointsBy(Human human);
+    protected abstract Integer pointsBy(Vampire vampire);
+    protected abstract Integer pointsBy(Wolf stadium);
 }

@@ -1,11 +1,18 @@
 package com.descortes.struggle;
 
-public class Forest implements Location {
+public class Forest extends Location {
     @Override
-    public Integer points(Character character) {
-        if(character instanceof Wolf){
-            return character.points() * 3;
-        }
+    protected Integer pointsBy(Human human) {
         return 0;
+    }
+
+    @Override
+    protected Integer pointsBy(Vampire vampire) {
+        return 0;
+    }
+
+    @Override
+    protected Integer pointsBy(Wolf wolf) {
+        return wolf.getDamage() * 3;
     }
 }

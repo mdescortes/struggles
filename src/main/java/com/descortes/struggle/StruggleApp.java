@@ -9,8 +9,8 @@ public class StruggleApp {
             Weapon weaponA =  createWeapon(weaponTypeA, characterA);
             Weapon weaponB =  createWeapon(weaponTypeB, characterB);
 
-            Integer puntosA = location.points(characterA) +  weaponA.points();
-            Integer puntosB = location.points(characterB) +  weaponB.points();
+            Integer puntosA = characterA.points(location) +  weaponA.points();
+            Integer puntosB = characterB.points(location) +  weaponB.points();
 
             if(puntosA > puntosB) return "Resultado: gana 1";
             if(puntosA < puntosB) return "Resultado: gana 2";

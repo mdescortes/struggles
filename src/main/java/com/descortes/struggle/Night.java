@@ -1,11 +1,19 @@
 package com.descortes.struggle;
 
-public class Night implements Location {
+public class Night extends Location {
+
     @Override
-    public Integer points(Character character) {
-        if(character instanceof Vampire){
-            return character.points() * 2;
-        }
+    protected Integer pointsBy(Human human) {
+        return 0;
+    }
+
+    @Override
+    protected Integer pointsBy(Vampire vampire) {
+        return  vampire.getDamage() * 2;
+    }
+
+    @Override
+    protected Integer pointsBy(Wolf stadium) {
         return 0;
     }
 }

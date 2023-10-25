@@ -1,8 +1,18 @@
 package com.descortes.struggle;
 
-public class Stadium implements Location {
+public class Stadium extends Location {
     @Override
-    public Integer points(Character character) {
+    protected Integer pointsBy(Human human) {
+        return 0;
+    }
+
+    @Override
+    protected Integer pointsBy(Vampire vampire) {
+        return 0;
+    }
+
+    @Override
+    protected Integer pointsBy(Wolf stadium) {
         return 0;
     }
 }
